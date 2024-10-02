@@ -8,7 +8,10 @@ import Role from './models/Role.js'; // Import Role model
 import User from './models/UserModel.js'; // Import User model
 import roleRoutes from './routes/roleRoutes.js'; // Import the role routes
 import roleRequest from './routes/roleRequests.js'; // Import the role routes
+import adminRoutes from './routes/admin.js'; // Import the role routes
 import cors from 'cors';
+import bcrypt from 'bcryptjs';
+
 
 
 config();
@@ -29,16 +32,17 @@ app.use(cors());
 async function createAdminUser() {
     try {
         const adminRole = await Role.findOne({ name: 'admin' });
-        const existingAdmin = await User.findOne({ username: 'admin' });
+        const existingAdmin = await User.findOne({ username: 'abhishekkadavergu' });
+        const hashedPassword = await bcrypt.hash('Abhi@1289', 10);
 
         if (!existingAdmin) {
             const adminUser = new User({
-                name: "Admin User",
-                username: "admin",
-                email: "admin@example.com",
-                password: "AdminPassword123", // Hash this before saving
-                country: "USA",
-                mobile: "1234567890",
+                name: "Abhishek Kadavergu",
+                username: "abhishekkadavergu",
+                email: "abhishekkadavergu@gmail.com",
+                password: hashedPassword, // Hash this before saving
+                country: "India",
+                mobile: "8885135781",
                 roles: [adminRole._id], // Ensure this matches your User model
             });
 
@@ -58,6 +62,7 @@ app.use('/api/car-data', carDataRoutes);
 // Use the role routes
 app.use('/api/roles', roleRoutes); // Use /api prefix for role-related routes
 app.use('/api/request', roleRequest); 
+app.use('/api/admin', adminRoutes); 
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {

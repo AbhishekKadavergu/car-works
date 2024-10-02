@@ -1,23 +1,32 @@
 // middleware/auth.js
 import jwt from 'jsonwebtoken';
+import User from '../models/UserModel.js';
 
-const protect = (req, res, next) => {
-    const token = req.headers.authorization?.split(' ')[1]; // Extract token from Bearer token
+// Middleware to authenticate and attach user to req
+const authenticate = async (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1]; // Expecting 'Bearer <token>'
 
-    if (!token) {
-        return res.status(401).json({ message: 'No token, authorization denied' });
+  if (!token) {
+    return res.status(401).json({ message: 'Access denied. No token provided.' });
+  }
+
+  try {
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET); // Use your JWT secret here
+
+    // Fetch user from database (optional but useful)
+    const user = await User.findById(decoded.id);
+
+    if (!user) {
+      return res.status(401).json({ message: 'User not found.' });
     }
 
-    try {
-        console.log(token);
-        console.log(process.env.JWT_SECRET);
-        
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded; // Add user info from token to request
-        next();
-    } catch (err) {
-        return res.status(401).json({ message: 'Token is not valid' });
-    }
+    // Attach user info to the request
+    req.user = user;
+    next(); // Pass control to the next middleware or route handler
+  } catch (error) {
+    return res.status(400).json({ message: 'Invalid token.' });
+  }
 };
 
-export default protect;
+export default authenticate;

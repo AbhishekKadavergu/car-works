@@ -27,6 +27,12 @@ const UserSchema = new Schema({
     roles: [{ type: Schema.Types.ObjectId, ref: 'Role' }],
 });
 
+// Pre-save hook to ensure unique roles
+UserSchema.pre('save', function (next) {
+    this.roles = [...new Set(this.roles)]; // Remove duplicate role IDs
+    next();
+});
+
 // Password matching method
 UserSchema.methods.matchPassword = async function (password) {
     return await compare(password, this.password);
