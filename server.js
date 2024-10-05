@@ -3,14 +3,16 @@ import express, { json } from 'express';
 import { config } from 'dotenv';
 import connectDB from './config/db.js'; // Ensure .js extension
 import authRoutes from './routes/auth.js'; // Ensure .js extension
-import carDataRoutes from './routes/carData.js'; // Ensure .js extension
 import Role from './models/Role.js'; // Import Role model
 import User from './models/UserModel.js'; // Import User model
 import roleRoutes from './routes/roleRoutes.js'; // Import the role routes
 import roleRequest from './routes/roleRequests.js'; // Import the role routes
 import adminRoutes from './routes/admin.js'; // Import the role routes
+import carRoutes from './routes/carRoutes.js'; // Import the role routes
 import cors from 'cors';
 import bcrypt from 'bcryptjs';
+import bodyParser from 'body-parser';
+
 
 
 
@@ -25,6 +27,8 @@ connectDB().catch(error => {
 
 // Middleware
 app.use(json());
+// Middleware to parse JSON
+app.use(bodyParser.json());
 // Enable CORS for all routes
 app.use(cors());
 
@@ -58,11 +62,11 @@ async function createAdminUser() {
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/car-data', carDataRoutes);
 // Use the role routes
 app.use('/api/roles', roleRoutes); // Use /api prefix for role-related routes
 app.use('/api/request', roleRequest); 
 app.use('/api/admin', adminRoutes); 
+app.use('/api/car', carRoutes); 
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, async () => {

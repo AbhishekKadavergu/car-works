@@ -32,3 +32,260 @@ Content-Type: application/json
 }
 ###
 
+### Create Part - Engine
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Engine",
+  "quantity": 1,
+  "cost": 5000,
+  "supplier": "Supplier A",
+  "weight": 400,
+  "carbonFootprint": 1200,
+  "leadTime": 7
+}
+
+### Create Part - Seat
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Seat",
+  "quantity": 4,
+  "cost": 200,
+  "supplier": "Supplier B",
+  "weight": 50,
+  "carbonFootprint": 50,
+  "leadTime": 3
+}
+
+### Create Part - Safety Bag
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Safety Bag",
+  "quantity": 2,
+  "cost": 300,
+  "supplier": "Supplier C",
+  "weight": 10,
+  "carbonFootprint": 20,
+  "leadTime": 5
+}
+
+### Create Part - Wiring
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Wiring",
+  "quantity": 50,
+  "cost": 500,
+  "supplier": "Supplier D",
+  "weight": 30,
+  "carbonFootprint": 70,
+  "leadTime": 10
+}
+
+### Create Part - Tire
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Tire",
+  "quantity": 4,
+  "cost": 400,
+  "supplier": "Supplier E",
+  "weight": 50,
+  "carbonFootprint": 100,
+  "leadTime": 6
+}
+
+### Create Part - Transmission
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Transmission",
+  "quantity": 1,
+  "cost": 3500,
+  "supplier": "Supplier F",
+  "weight": 300,
+  "carbonFootprint": 900,
+  "leadTime": 8
+}
+
+### Create Part - Battery
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Battery",
+  "quantity": 1,
+  "cost": 2000,
+  "supplier": "Supplier G",
+  "weight": 250,
+  "carbonFootprint": 800,
+  "leadTime": 12
+}
+
+### Create Part - Brakes
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Brakes",
+  "quantity": 4,
+  "cost": 500,
+  "supplier": "Supplier H",
+  "weight": 60,
+  "carbonFootprint": 150,
+  "leadTime": 5
+}
+
+### Create Part - Steering Wheel
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Steering Wheel",
+  "quantity": 1,
+  "cost": 150,
+  "supplier": "Supplier I",
+  "weight": 20,
+  "carbonFootprint": 40,
+  "leadTime": 4
+}
+
+### Create Part - Exhaust System
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Exhaust System",
+  "quantity": 1,
+  "cost": 1000,
+  "supplier": "Supplier J",
+  "weight": 100,
+  "carbonFootprint": 300,
+  "leadTime": 7
+}
+
+### Create Part - Infotainment System
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Infotainment System",
+  "quantity": 1,
+  "cost": 800,
+  "supplier": "Supplier K",
+  "weight": 25,
+  "carbonFootprint": 50,
+  "leadTime": 10
+}
+
+### Create Part - Suspension
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Suspension",
+  "quantity": 2,
+  "cost": 1500,
+  "supplier": "Supplier L",
+  "weight": 80,
+  "carbonFootprint": 200,
+  "leadTime": 6
+}
+
+### Create Part - Fuel Tank
+POST http://localhost:5000/api/car/part
+Content-Type: application/json
+
+{
+  "name": "Fuel Tank",
+  "quantity": 1,
+  "cost": 1200,
+  "supplier": "Supplier M",
+  "weight": 60,
+  "carbonFootprint": 300,
+  "leadTime": 7
+}
+
+
+### Create Design Solution - DS-123 (Sports Car)
+POST http://localhost:5000/api/car/design-solution
+Content-Type: application/json
+
+{
+  "code": "DS-123",
+  "description": "Design Solution for Sports Car",
+  "parts": ["67014eb1422b0e9ca139238e", "67014ed0422b0e9ca1392390"]
+}
+
+### Create Design Solution - DS-456 (SUV)
+POST http://localhost:5000/api/car/design-solution
+Content-Type: application/json
+
+{
+  "code": "DS-456",
+  "description": "Design Solution for SUV",
+  "parts": ["67014eb1422b0e9ca139238e", "67014ed0422b0e9ca1392390", "67014ed8422b0e9ca1392392", "67014edc422b0e9ca1392394", "67014ee0422b0e9ca1392396", "67014f74422b0e9ca1392398", "67014f79422b0e9ca139239a", "67014f7f422b0e9ca139239c", "67014f85422b0e9ca139239e", "67014f88422b0e9ca13923a0", "67014f91422b0e9ca13923a2", "67014f97422b0e9ca13923a4", "67014f9b422b0e9ca13923a6"]
+}
+
+### Create Design Solution - DS-789 (Electric Car)
+POST http://localhost:5000/api/car/design-solution
+Content-Type: application/json
+
+{
+  "code": "DS-789",
+  "description": "Design Solution for Electric Car",
+  "parts": ["67014eb1422b0e9ca139238e", "67014ed0422b0e9ca1392390", "67014ed8422b0e9ca1392392", "67014edc422b0e9ca1392394", "67014ee0422b0e9ca1392396", "67014f74422b0e9ca1392398", "67014f79422b0e9ca139239a", "67014f7f422b0e9ca139239c", "67014f85422b0e9ca139239e", "67014f9b422b0e9ca13923a6"]
+}
+
+
+### Create Car - MSN-001
+POST http://localhost:5000/api/car/create-car
+Content-Type: application/json
+
+{
+  "msn": "MSN-001",
+  "designSolutionId": "67016b3db60b5d94265a70d9",  
+  "manufactureDate": "2023-08-15"
+}
+
+### Create Car - MSN-002
+POST http://localhost:5000/api/car/create-car
+Content-Type: application/json
+
+{
+  "msn": "MSN-002",
+  "designSolutionId": "67016c67b60b5d94265a70db",  
+  "manufactureDate": "2023-09-10"
+}
+
+### Create Car - MSN-003
+POST http://localhost:5000/api/car/create-car
+Content-Type: application/json
+
+{
+  "msn": "MSN-003",
+  "designSolutionId": "67016c9cb60b5d94265a70dd",  
+  "manufactureDate": "2023-09-25"
+}
+
+### Get bom by Design Solution
+GET http://localhost:5000/api/car/bom-by-ds/DS-123
+
+
+
+###Get PCF by Design Solution
+GET http://localhost:5000/api/car/pcf-by-ds/DS-456
+
+
+// Routes for getting BOM and PCF by Design Solution code
+router.get('/bom-by-ds/:dsCode', getBOMByDS);
+router.get('/pcf-by-ds/:dsCode', getPCFByDS);
+
