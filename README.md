@@ -31,7 +31,7 @@ Before setting up and running this project, ensure you have the following instal
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/AbhishekKadavergu/car-works.git
    cd carworks
    ```
 
