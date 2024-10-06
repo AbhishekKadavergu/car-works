@@ -284,6 +284,9 @@ GET http://localhost:5000/api/car/bom-by-ds/DS-123
 ###Get PCF by Design Solution
 GET http://localhost:5000/api/car/pcf-by-ds/DS-456
 
+###Get allds codes
+GET http://localhost:5000/api/car/ds-codes
+
 
 // Routes for getting BOM and PCF by Design Solution code
 router.get('/bom-by-ds/:dsCode', getBOMByDS);

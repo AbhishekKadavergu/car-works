@@ -11,7 +11,6 @@ const isAdmin = async (req, res, next) => {
         }
 
         // Check if any of the user's roles have the name "admin"
-        console.log(user);
         const isAdminRole = user.roles.some(role => role.name === 'admin');
         if (isAdminRole) {
             next(); // Proceed to the next middleware

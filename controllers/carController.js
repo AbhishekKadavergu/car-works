@@ -114,3 +114,14 @@ export const getPCFByDS = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch PCF details' });
   }
 };
+
+// Get all dsCodes
+export const getAllDSCodes = async (req, res) => {
+    try {
+        const dsCodes = await DesignSolution.find({}, 'code description');
+        res.status(200).json(dsCodes);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};

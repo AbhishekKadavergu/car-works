@@ -55,7 +55,8 @@ router.post('/revoke/:id', authenticate, isAdmin, async (req, res) => {
 router.get('/requests', authenticate, isAdmin, async (req, res) => {
     try {
         const requests = await RoleRequest.find()
-            .populate('user role');
+            .populate('user role')
+            .sort({ createdAt: -1 });
 
         // Filter out requests where the user object is null after population
         const validRequests = requests.filter(request => request.user !== null);
